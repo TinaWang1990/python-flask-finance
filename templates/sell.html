@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell Stock
+{% endblock %}
+
+{% block main %}
+    <h3 class="text-center">Sell Stock</h3>
+    <form action="/sell" method="post">
+        <div class="input-group mb-3">
+          <select class="custom-select" id="inputGroupSelect02" name="symbol" required>
+            <option value="">Choose...</option>
+            {% for stock in stocks %}
+            <option value="{{stock}}">{{stock}}</option>
+            {% endfor %}
+          </select>
+          <div class="input-group-append">
+            <label class="input-group-text" for="inputGroupSelect02">Options</label>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="number" class="form-control" name="shares" placeholder="Enter shares' amount" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
+          <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon2">Shares</span>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Sell</button>
+    </form>
+{% endblock %}

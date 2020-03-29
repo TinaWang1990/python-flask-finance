@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    history
+{% endblock %}
+
+{% block main %}
+    <h3 class="text-left m-3">All of your transition history</h3>
+    <table class="table">
+  <thead>
+    <tr>
+        <th scope="col">Index</th>
+        <th scope="col">Type</th>
+        <th scope="col">Symbol</th>
+        <th scope="col">Shares</th>
+        <th scope="col">Transit Price</th>
+        <th scope="col">Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for sum in sum %}
+    <tr>
+      <th scope="row">{{loop.index}}</th>
+      <td>{{sum["transit_type"]}}</td>
+      <td>{{sum["symbol"] | upper}}</td>
+      <td>{{sum["share"] | abs}}</td>
+      <td>${{sum["price"]}}</td>
+      <td>{{sum["time"]}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

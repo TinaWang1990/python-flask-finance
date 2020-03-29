@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <h3 class="text-center">Quoted {{symbol | upper}}</h3>
+    <div class="text-left w-100 mx-5">
+        <li>company name: {{quotes.name | replace(",", "") }}</li>
+        <li>price: ${{quotes.price}}</li>
+        <li>symbol: {{quotes.symbol}}</li>
+    </div>
+{% endblock %}
